@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
     A_out, U_out, Lambda_out, Gamma1_out, Gamma2_out = model.modify_params()
     
-    mupredicted = FirstModel.compute_mu(A_out, U_out, Lambda_out, Gamma1_out, Gamma2_out, sub, j, k4, k14).detach() # [k4,k14], [k4,k14], [k1,k2,k14]
+    mupredicted = FirstModel.compute_mu(A_out, U_out, Lambda_out, Gamma1_out, Gamma2_out, sub, j, k4, k14).detach() 
     k = 5  # k:number of parameters in Model4 for Game1
     n_s = 22179  # number of user samples for Game1
     evaluate_predictions(mupredicted, y, k, n_s)
@@ -97,9 +97,9 @@ if __name__ == '__main__':
     # Save the prediction to a CSV file
     with open('M4_' + file_name +'_fit_prediction.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['sub', 'gameplays', 'Selective_Attention', 'Response_Inhibition', 'y_true', 'y_predict'])    # 'Selective_Attention', 'Memory', 'Memory_Updating', 'Response_Inhibition'
+        writer.writerow(['sub', 'gameplays', 'Selective_Attention', 'Response_Inhibition', 'y_true', 'y_predict'])    
         for i in range(len(mupredicted)):
-            writer.writerow([sub[i].item(), j[i].item(), k4[i].item(), k14[i].item(), y[i].item(), mupredicted[i].item()])    # [k4,k14], [k4,k14], [k1,k2,k14]
+            writer.writerow([sub[i].item(), j[i].item(), k4[i].item(), k14[i].item(), y[i].item(), mupredicted[i].item()])   
 
     # Save the parameters to a CSV file
     with open('M4_' + file_name +'_fit_parameter.csv', 'w', newline='') as csvfile:
