@@ -2,6 +2,7 @@ import pandas as pd
 import torch
 
 
+
 def extractdata_basic(df):
 
     subjectcount = len(df.anon_id.unique())
@@ -15,6 +16,7 @@ def extractdata_basic(df):
     j = torch.tensor(j.values).float()
 
     return y, j, sub, subjectcount
+
 
 
 def extractdata_gfactor(df):
@@ -32,6 +34,7 @@ def extractdata_gfactor(df):
     k = torch.tensor(k.values).float()
     
     return y, j, k, sub, subjectcount
+
 
 
 def extractdata_faculty(df):
@@ -59,6 +62,7 @@ def extractdata_faculty(df):
     k6 = torch.tensor(k6.values).float()
     
     return y, j, k1, k2, k3, k4, k5, k6, sub, subjectcount
+
 
 
 def extractdata_faculty_fined(df):
@@ -110,6 +114,7 @@ def extractdata_faculty_fined(df):
     return y, j, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, sub, subjectcount
 
 
+
 def extractdata_element(df):
 
     subjectcount = len(df.anon_id.unique())
@@ -151,6 +156,7 @@ def extractdata_element(df):
     k14 = torch.tensor(k14.values).float()
     
     return y, j, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, sub, subjectcount
+
 
 
 def extractdata_element_stimulus(df):
